@@ -130,4 +130,28 @@ public:
     }
     
 };
+
+
+#stone weight
+class Solution:
+    def lastStoneWeight(self, stones: List[int]) -> int:
+        if len(stones)==0:
+            return 0
+        if len(stones)==1:
+            return 1
+        while len(stones)>1:
+            stones.sort()
+            first=stones[-1]
+            second=stones[-2]
+            if first==second:
+                stones.pop(-1)
+                stones.pop(-1)
+            else:
+                first=abs(first-second)
+                stones.pop(-1)
+                stones[-1]=first
+        if len(stones)==0:
+            return 0
+        return stones[-1]
+        
         
