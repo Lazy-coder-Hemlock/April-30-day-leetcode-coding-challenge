@@ -174,4 +174,21 @@ class Solution:
                 d[sum]=i
         return sub
         
+ #Perform String Shifts
+     
+ from collections import deque
+class Solution:
+    def stringShift(self, s: str, shift: List[List[int]]) -> str:
+        test_list=[i for i in s]
+        for k,v in shift:
+                if k==0:
+                    test_list=deque(test_list)
+                    test_list.rotate(-v)
+                    test_list=list(test_list)
+                else:
+                    test_list=deque(test_list)
+                    test_list.rotate(v)
+                    test_list=list(test_list)
+        return ''.join(test_list)
+        
         
