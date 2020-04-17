@@ -60,3 +60,36 @@ public:
 };
 
 
+
+#Number of islands
+
+class Solution {
+void mark(vector<vector<char>>&mat,int x,int y,int r,int c){
+ if(x<0 || x>=r || y<0 || y>=c || mat[x][y]!='1')
+     return;
+    mat[x][y]='2';
+    mark(mat,x+1,y,r,c);
+    mark(mat,x,y+1,r,c);
+    mark(mat,x-1,y,r,c);
+    mark(mat,x,y-1,r,c);
+}    
+    public:
+    int numIslands(vector<vector<char>>& grid) {
+        if(grid.size()==0)
+            return 0;
+        int row=grid.size();
+        int col=grid[0].size();
+        int island=0;
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                if(grid[i][j]=='1')
+               island++; 
+                    mark(grid,i,j,row,col);
+              
+            }
+        }
+        return island;
+    }
+};
+
+
