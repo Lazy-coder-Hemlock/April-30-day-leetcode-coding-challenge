@@ -152,4 +152,34 @@ class Solution {
     }
 }
 
+#construct binary search tree from preorder traversal
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    TreeNode *create(TreeNode* &root,int ele){
+        if(!root)
+            return root=new TreeNode(ele);
+        if(root->val>ele)
+            root->left=create(root->left,ele);
+        else
+            root->right=create(root->right,ele);
+        return root;
+    }
+public:
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+        TreeNode *root=NULL;
+        for(auto x:preorder)
+            create(root,x);
+        return root;
+    }
+};
+
 
