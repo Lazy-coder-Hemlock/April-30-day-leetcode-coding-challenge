@@ -183,3 +183,35 @@ public:
 };
 
 
+#Leftmost column with atleast a one
+/**
+ * // This is the BinaryMatrix's API interface.
+ * // You should not implement it, or speculate about its implementation
+ * class BinaryMatrix {
+ *   public:
+ *     int get(int x, int y);
+ *     vector<int> dimensions();
+ * };
+ */
+
+class Solution {
+public:
+    int leftMostColumnWithOne(BinaryMatrix &binaryMatrix) {
+        vector<int>matrix=binaryMatrix.dimensions();
+        int row=matrix[0]-1;
+        int col=matrix[1]-1;
+        int res=-1;
+        while (row>=0 && col>=0){
+            if(binaryMatrix.get(row,col)==1){
+                res=col;
+                col--;
+            }
+            else{
+                row--;
+            }
+        }
+        return res;
+    }
+};
+
+
