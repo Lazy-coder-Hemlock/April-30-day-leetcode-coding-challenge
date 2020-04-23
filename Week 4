@@ -16,3 +16,21 @@ public:
         return count;
     }
 };
+
+# Bitwise AND of Numbers Range
+
+
+#define ll long ong 
+class Solution {
+public:
+    int rangeBitwiseAnd(int m, int n) {
+       ll count=0;
+        while(m!=n){
+            m=m>>1;
+            n=n>>1;
+            ++count;
+        }
+        m=m<<count;
+        return m;
+    }
+};
