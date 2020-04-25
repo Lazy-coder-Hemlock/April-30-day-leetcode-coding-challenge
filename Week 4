@@ -34,3 +34,39 @@ public:
         return m;
     }
 };
+
+#Implement LRU cache
+
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.capacity=capacity
+        self.map=OrderedDict()
+        
+        
+
+    def get(self, key: int) -> int:
+        self.key=key
+        if self.key in self.map:
+            self.value=self.map.pop(self.key)
+            self.map[key]=self.value
+            return self.value
+        return -1
+            
+        
+
+    def put(self, key: int, value: int) -> None:
+        self.key=key
+        self.value=value
+        if self.key in self.map:
+            self.map.pop(self.key)
+        elif self.capacity==len(self.map):
+            self.map.popitem(last=False)
+        self.map[self.key]=self.value
+        
+
+
+# Your LRUCache object will be instantiated and called as such:
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key,value)
