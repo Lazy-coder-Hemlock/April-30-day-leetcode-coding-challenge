@@ -70,3 +70,26 @@ class LRUCache:
 # obj = LRUCache(capacity)
 # param_1 = obj.get(key)
 # obj.put(key,value)
+
+
+
+
+
+#jump game
+
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int m=nums[0];
+        if(nums.size()<=1)
+            return true;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==0 && m<=i)
+                return false;
+            m=max(m,i+nums[i]);
+            if(m>=nums.size()-1)
+                return true;
+       }
+       return false; 
+    }
+};
