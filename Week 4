@@ -138,3 +138,27 @@ public:
         return largest*largest;
     }
 };
+
+
+#First Unique Number
+
+class FirstUnique:
+    def __init__(self, nums: List[int]):
+        self.d={}
+        for i in nums:
+            self.d[i]=self.d.get(i,0)+1
+
+    def showFirstUnique(self) -> int:
+        for i,j in self.d.items():
+            if j==1:
+                return i
+        return -1
+
+    def add(self, value: int) -> None:
+        self.d[value]=self.d.get(value,0)+1
+
+
+# Your FirstUnique object will be instantiated and called as such:
+# obj = FirstUnique(nums)
+# param_1 = obj.showFirstUnique()
+# obj.add(value)
